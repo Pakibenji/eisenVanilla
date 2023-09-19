@@ -1,0 +1,108 @@
+:root {
+  --mainColor: #333;
+  --secondaryColor: #555;
+  --lightColor: #ddd;
+  --titleFont: "Roboto", sans-serif;
+  --formFont: "Open Sans", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: var(--mainColor);
+  color: var(--lightColor);
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--titleFont);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: var(--formFont);
+  font-size: 1.4rem;
+}
+form label {
+  margin: 1rem;
+}
+form input {
+  padding: 0.5rem;
+  border: 1px solid var(--secondaryColor);
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+}
+form button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--secondaryColor);
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  background-color: var(--mainColor);
+  color: var(--lightColor);
+  cursor: pointer;
+}
+
+.tasksContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--formFont);
+  font-size: 1.4rem;
+}
+
+.task {
+  background : var(--lightColor);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  width: 20%;
+  text-align: center;
+}
+.task:hover {
+  background : var(--secondaryColor);
+  color: var(--lightColor);
+  cursor: grab;
+}
+.task:active {
+  cursor: grabbing;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 0 3rem;
+}
+.case {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+}
+.urgentImportant {
+  grid-area: 1 / 1 / 3 / 3;
+  background: red;
+
+}
+.urgentNotImportant {
+  grid-area: 1 / 3 / 3 / 5;
+  background: orangered;
+}
+.importantNotUrgent {
+  grid-area: 3 / 1 / 5 / 3;
+  background: green;
+}
+.notImportantNotUrgent {
+  grid-area: 3 / 3 / 5 / 5;
+  background: grey;
+}
+
