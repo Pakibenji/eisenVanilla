@@ -4,6 +4,11 @@ const tasksContainer = document.querySelector(".tasksContainer");
 const task = document.querySelector(".task");
 const cases = document.querySelectorAll(".case");
 const arrayCase = Array.from(cases);
+const urgentImportant = document.querySelector(".urgentImportant");
+const urgentNotImportant = document.querySelector(".urgentNotImportant");
+const importantNotUrgent = document.querySelector(".importantNotUrgent");
+const notImportantNotUrgent = document.querySelector(".notImportantNotUrgent");
+
 
 newTaskForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -73,8 +78,6 @@ arrayCase.map((element) => {
     event.target.innerHTML = data;
   });
 });
-
-
 
 if (localStorage.getItem("tasks")) {
   displayTasks();

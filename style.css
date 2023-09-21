@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
 :root {
   --mainColor: #333;
   --secondaryColor: #555;
   --lightColor: #ddd;
-  --titleFont: "Roboto", sans-serif;
+  --titleFont: "Rubik Mono One", sans-serif;
   --formFont: "Open Sans", sans-serif;
 }
 * {
@@ -11,39 +12,67 @@
   padding: 0;
 }
 header {
-  background-color: var(--mainColor);
-  color: var(--lightColor);
   padding: 1rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+}
+header h1 {
   font-family: var(--titleFont);
+  font-size: 3rem;
+  text-align: left;
+  color: var(--mainC);
+  margin-left: 3rem;
+  letter-spacing:  -0.2rem;
+}
+header h2 {
+  font-family: var(--formFont);
+  font-size: 2rem;
+  text-align: left;
+  color: var(--mainColor);
+  margin-left: 3rem;
+}
+
+.newTask {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 form {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0rem;
   font-family: var(--formFont);
   font-size: 1.4rem;
 }
 form label {
-  margin: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--mainColor);
 }
 form input {
-  padding: 0.5rem;
+  margin-top: 1rem;
   border: 1px solid var(--secondaryColor);
-  border-radius: 0.5rem;
   font-size: 1.4rem;
+  font-family: var(--formFont);
+  color: var(--mainColor);
 }
 form button {
   margin-top: 1rem;
-  padding: 0.5rem;
   border: 1px solid var(--secondaryColor);
-  border-radius: 0.5rem;
   font-size: 1.4rem;
-  background-color: var(--mainColor);
-  color: var(--lightColor);
+  font-family: var(--formFont);
+  color: var(--mainColor);
+  background: var(--lightColor);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
+}
+form button:hover {
+  background: var(--secondaryColor);
+  color: var(--lightColor);
 }
 
 .tasksContainer {
@@ -58,7 +87,7 @@ form button {
 }
 
 .task {
-  background : var(--lightColor);
+  background: var(--lightColor);
   padding: 1rem;
   margin: 1rem;
   border-radius: 0.5rem;
@@ -66,7 +95,7 @@ form button {
   text-align: center;
 }
 .task:hover {
-  background : var(--secondaryColor);
+  background: var(--secondaryColor);
   color: var(--lightColor);
   cursor: grab;
 }
@@ -78,20 +107,22 @@ form button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
   margin: 0 3rem;
+  max-width: 1200px;
+  align-items: center;
+  margin: 0 auto;
 }
 .case {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 240px;
 }
 .urgentImportant {
   grid-area: 1 / 1 / 3 / 3;
   background: red;
-
 }
 .urgentNotImportant {
   grid-area: 1 / 3 / 3 / 5;
@@ -105,4 +136,3 @@ form button {
   grid-area: 3 / 3 / 5 / 5;
   background: grey;
 }
-
