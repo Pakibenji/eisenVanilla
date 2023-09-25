@@ -21,7 +21,7 @@ header {
 }
 header h1 {
   font-family: var(--titleFont);
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: var(--mainColor);
   letter-spacing: -0.2rem;
 }
@@ -74,12 +74,12 @@ form button img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80%;
-  border: 1px solid var(--mainColor);
+  margin: 0.2rem;
+  width: 70%;
   border-radius: 0.5rem;
   background: var(--lightColor);
   font-family: var(--formFont);
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -94,21 +94,45 @@ form button img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   min-height: 240px;
+  border-radius: 0.5rem;
+}
+
+.case h2 {
+  font-size: 0.8rem;
+  font-family: var(--titleFont);
 }
 .urgentImportant {
   grid-area: 1 / 1 / 3 / 3;
-  border: red 1px solid;
+  border: red 3px solid;
 }
 .urgentNotImportant {
   grid-area: 1 / 3 / 3 / 5;
-  border: orangered 1px solid;
+  border: orangered 3px solid;
 }
 .importantNotUrgent {
   grid-area: 3 / 1 / 5 / 3;
-  border: green 1px solid;
+  border: green 3px solid;
 }
 .notImportantNotUrgent {
   grid-area: 3 / 3 / 5 / 5;
-  border: grey 1px solid;
+  border: grey 3px solid;
 }
+
+.trashBtn {
+  border: none;
+  background: none;
+  color: var(--mainColor);
+  font-family: var(--formFont);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+}
+
+.trashBtn img {
+  width: 2rem;
+}
+
