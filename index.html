@@ -9,24 +9,26 @@
   <body>
     <header>
       <h1>EisenHours</h1>
-      <h2>The Awesome Eisenhower's Matrix</h2>
     </header>
-    <section class="newTask">
       <form action="" class="newTaskForm">
-        <label for="newTask">New Task</label>
+        <label for="newTask">NEW TASK</label>
         <input type="text" name="newTask" id="newTask" class="newTaskInput" />
-        <button type="submit">Create Task</button>
+        <button type="submit">
+          <img src="assets/circle-plus.svg" alt="plus" />
+        </button>
       </form>
-    </section>
     <section class="tasksContainer">
     </section>
     <section class="gridContainer">
         <div class="case urgentImportant"> URGENT/IMPORTANT </div>
-        <div class="case urgentNotImportant"> URGENT NOT IMPORTANT</div>
+        <div class="case urgentNotImportant"> URGENT / NOT IMPORTANT</div>
         <div class="case importantNotUrgent">IMPORTANT/ NOT URGENT </div>
         <div class="case notImportantNotUrgent">NOT IMPORTANT / NOT URGENT </div>
     </section>
     <div class="done">
+      <button class="trashBtn">
+        <img src="./assets/trash.svg" alt="delete">
+      </button>
     </div>
   </body>
     <script src="index.js"></script>

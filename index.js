@@ -25,15 +25,15 @@ newTaskForm.addEventListener("submit", (event) => {
 
 function isValidTask(task) {
   if (task.name === "") {
-    alert("Veuillez entrer une tâche");
+    alert("Please enter a task");
     return false;
   }
   if (task.name.length < 3) {
-    alert("Veuillez entrer une tâche de plus de 3 caractères");
+    alert("Please enter a task of more than 3 characters");
     return false;
   }
   if (task.name.length > 30) {
-    alert("Veuillez entrer une tâche de moins de 30 caractères");
+    alert("Please enter a task of less than 30 characters");
     return false;
   }
   return true;
