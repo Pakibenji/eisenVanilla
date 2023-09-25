@@ -19,16 +19,26 @@
     </form>
     <section class="tasksContainer"></section>
     <section class="gridContainer">
-      <div class="case urgentImportant"><h2>URGENT/IMPORTANT</h2></div>
-      <div class="case urgentNotImportant"><h2>URGENT / NOT IMPORTANT</h2></div>
-      <div class="case importantNotUrgent"><h2>IMPORTANT/ NOT URGENT</h2></div>
+      <div class="case urgentImportant">
+        <h2>URGENT/IMPORTANT</h2>
+        <div class="drop-container"></div>
+      </div>
+      <div class="case urgentNotImportant">
+        <h2>URGENT / NOT IMPORTANT</h2>
+        <div class="drop-container"></div>
+      </div>
+      <div class="case importantNotUrgent">
+        <h2>IMPORTANT/ NOT URGENT</h2>
+        <div class="drop-container"></div>
+      </div>
       <div class="case notImportantNotUrgent">
         <h2>NOT IMPORTANT / NOT URGENT</h2>
+        <div class="drop-container"></div>
       </div>
     </section>
-      <button class="trashBtn">
-        <img src="./assets/trash.svg" alt="delete" />
-      </button>
+    <button class="trashBtn" id="trash">
+      <img src="./assets/trash.svg" alt="delete" />
+    </button>
   </body>
   <script src="index.js"></script>
 </html>
