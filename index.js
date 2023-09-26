@@ -21,18 +21,8 @@ arrayCase.forEach((element) => {
   element.addEventListener("drop", handleDrop);
 });
 
-tasksContainer.addEventListener("touchstart", handleDragStart);
-tasksContainer.addEventListener("touchend", handleDragEnd);
-arrayCase.forEach((element) => {
-  element.addEventListener("touchstart", handleDragOver);
-  element.addEventListener("touchend", handleDrop);
-});
-
 trashBtn.addEventListener("dragover", (event) => event.preventDefault());
 trashBtn.addEventListener("drop", handleDeleteTask);
-
-trashBtn.addEventListener("touchstart", (event) => event.preventDefault());
-trashBtn.addEventListener("touchend", handleDeleteTask);
 
 loadTasksFromLocalStorage();
 
@@ -92,7 +82,6 @@ function createTaskElement(taskName) {
   taskElement.addEventListener("dragstart", handleDragStart);
   return taskElement;
 }
-
 function isValidTask(task) {
   if (task === "") {
     alert("Please enter a task");
