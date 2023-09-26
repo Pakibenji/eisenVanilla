@@ -20,16 +20,6 @@ arrayCase.forEach((element) => {
   element.addEventListener("dragover", handleDragOver);
   element.addEventListener("drop", handleDrop);
 });
-tasksContainer.addEventListener("touchstart", handleDragStart);
-tasksContainer.addEventListener("touchend", handleDragEnd);
-arrayCase.forEach((element) => {
-  element.addEventListener("touchstart", handleDragOver);
-  element.addEventListener("touchend", handleDrop);
-});
-
-trashBtn.addEventListener("touchstart", (event) => event.preventDefault());
-trashBtn.addEventListener("touchend", handleDeleteTask);
-
 trashBtn.addEventListener("dragover", (event) => event.preventDefault());
 trashBtn.addEventListener("drop", handleDeleteTask);
 
