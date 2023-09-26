@@ -56,16 +56,12 @@ arrayCase.forEach((element) => {
 // Gestionnaire d'événement pour les tâches en cours de déplacement
 tasksContainer.addEventListener("dragstart", handleDragStart);
 tasksContainer.addEventListener("dragend", handleDragEnd);
-tasksContainer.addEventListener("touchstart", handleTouchStart);
-tasksContainer.addEventListener("touchend", handleTouchEnd);
+
 // Gestionnaire d'événement "dragover" pour les conteneurs de catégorie
 function handleDragOver(event) {
   event.preventDefault();
 }
-arrayCase.forEach((element) => {
-  element.addEventListener("touchmove", handleTouchMove);
-  element.addEventListener("touchend", handleTouchEnd);
-});
+
 // Gestionnaire d'événement "drop" pour les conteneurs de catégorie
 function handleDrop(event) {
   event.preventDefault();
@@ -98,40 +94,6 @@ function handleDrop(event) {
 function handleDragStart(event) {
   event.dataTransfer.setData("text/plain", event.target.innerHTML);
   draggedTask = event.target;
-}
-function handleTouchStart(event) {
-  event.preventDefault(); // Empêchez le comportement par défaut du touchstart
-
-  const touchedTask = event.touches[0].target; // Obtenez la première coordonnée tactile
-  if (touchedTask.classList.contains("task")) {
-    event.dataTransfer.setData("text/plain", touchedTask.innerHTML);
-    draggedTask = touchedTask;
-  }
-}
-function handleTouchMove(event) {
-  event.preventDefault(); // Empêchez le comportement par défaut du touchmove
-}
-function handleTouchEnd(event) {
-  event.preventDefault(); // Empêchez le comportement par défaut du touchend
-
-  // Assurez-vous qu'il y a une tâche en cours de déplacement
-  if (draggedTask) {
-    // Supprimez l'élément de tâche de son emplacement précédent
-    const previousContainer = draggedTask.parentElement;
-    previousContainer.removeChild(draggedTask);
-
-    // Créez un élément de tâche dans la catégorie cible
-    const taskElement = createTaskElement(draggedTask.innerHTML);
-
-    // Ajoutez l'élément de tâche à la catégorie cible
-    event.target.querySelector(".drop-container").appendChild(taskElement);
-
-    // Sauvegardez les tâches dans le localStorage
-    saveTasksToLocalStorage();
-
-    // Réinitialisez la tâche en cours de déplacement
-    draggedTask = null;
-  }
 }
 
 // Gestionnaire d'événement "dragend" pour les tâches
