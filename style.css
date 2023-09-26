@@ -49,6 +49,7 @@ form input {
   border: 1px solid var(--mainColor);
   border-radius: 0.5rem;
   width: 80%;
+  max-width: 800px;
   font-size: 1.2rem;
   text-align: center;
   font-family: var(--formFont);
@@ -56,11 +57,17 @@ form input {
 form button {
   border: none;
   background: white;
+  padding: 0.5rem;
 }
 form button img {
   width: 2rem;
   height: 2rem;
   color: var(--mainColor);
+}
+form button img:hover {
+  cursor: pointer;
+  scale: 1.1;
+  transition: 0.2s;
 }
 .task {
   font-family: var(--taskFont);
@@ -68,12 +75,20 @@ form button img {
   color: white;
   margin:0.2rem 0 0.2rem 0;
 }
+.task:hover {
+  cursor: grab;
+}
+.task:active {
+  cursor: grabbing;
+}
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .case {
   display: flex;
@@ -146,7 +161,14 @@ form button img {
   align-items: center;
   margin: 0.5rem auto;
 }
-
+.trashBtn {
+  padding: 0.5rem;
+}
 .trashBtn img {
   width: 2rem;
+}
+
+.trashBtn img:hover {
+  scale: 1.1;
+  transition: 0.2s;
 }
