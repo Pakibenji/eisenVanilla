@@ -73,7 +73,7 @@ form button img:hover {
   font-family: var(--taskFont);
   width: 100%;
   color: white;
-  margin:0.2rem 0 0.2rem 0;
+  margin: 0.2rem 0 0.2rem 0;
 }
 .task:hover {
   cursor: grab;
@@ -167,8 +167,20 @@ form button img:hover {
 .trashBtn img {
   width: 2rem;
 }
-
 .trashBtn img:hover {
   scale: 1.1;
   transition: 0.2s;
+}
+footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  width: 100%;
+  font-family: var(--formFont);
+  color: var(--mainColor);
+  margin: 0 auto;
+  background: var(--lightColor);
 }

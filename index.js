@@ -89,10 +89,8 @@ function handleTouchStart(event) {
   touchStartX = touch.clientX;
   touchStartY = touch.clientY;
 
-  // Sélectionnez la tâche à déplacer
   draggedTask = event.target;
 
-  // Ajoutez un style pour indiquer que la tâche est en cours de glissement
   draggedTask.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
   event.preventDefault();
 }
@@ -104,7 +102,6 @@ function handleTouchMove(event) {
   const deltaX = touch.clientX - touchStartX;
   const deltaY = touch.clientY - touchStartY;
 
-  // Déplacez la tâche en fonction des mouvements tactiles
   draggedTask.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
   event.preventDefault();
 }
@@ -112,13 +109,9 @@ function handleTouchMove(event) {
 function handleTouchEnd(event) {
   if (!draggedTask) return;
 
-  // Remettez la tâche à sa position d'origine
   draggedTask.style.transform = "translate(0px, 0px)";
   draggedTask.style.boxShadow = "none";
 
-  // Effectuez toute action appropriée ici (par exemple, déplacement vers une autre catégorie ou suppression)
-
-  // Réinitialisez la tâche en cours de glissement
   draggedTask = null;
 
   event.preventDefault();
