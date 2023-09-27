@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Rubik Mono One
+- Font Author: Copyright 2015 The Rubik Project Authors (mail@hubertfischer.com)
+- Font Source: http://fonts.gstatic.com/s/rubikmonoone/v18/UqyJK8kPP3hjw6ANTdfRk9YSN-8wRqQrc_j9.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
