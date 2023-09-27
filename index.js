@@ -12,14 +12,21 @@ const categories = {
 };
 
 let draggedTask = null;
+let touchStartX = 0;
+let touchStartY = 0;
 
 newTaskForm.addEventListener("submit", handleNewTaskSubmit);
 tasksContainer.addEventListener("dragstart", handleDragStart);
 tasksContainer.addEventListener("dragend", handleDragEnd);
+tasksContainer.addEventListener("touchstart", handleTouchStart);
+tasksContainer.addEventListener("touchmove", handleTouchMove);
+tasksContainer.addEventListener("touchend", handleTouchEnd);
+
 arrayCase.forEach((element) => {
   element.addEventListener("dragover", handleDragOver);
   element.addEventListener("drop", handleDrop);
 });
+
 trashBtn.addEventListener("dragover", (event) => event.preventDefault());
 trashBtn.addEventListener("drop", handleDeleteTask);
 
@@ -36,7 +43,9 @@ function handleNewTaskSubmit(event) {
 
 function addTask(taskName, categoryIndex) {
   const taskElement = createTaskElement(taskName);
-  arrayCase[categoryIndex].querySelector(".drop-container").appendChild(taskElement);
+  arrayCase[categoryIndex]
+    .querySelector(".drop-container")
+    .appendChild(taskElement);
   saveTasksToLocalStorage();
 }
 
@@ -57,7 +66,9 @@ function handleDrop(event) {
     previousContainer.removeChild(draggedTask);
 
     const taskElement = createTaskElement(data);
-    event.currentTarget.querySelector(".drop-container").appendChild(taskElement);
+    event.currentTarget
+      .querySelector(".drop-container")
+      .appendChild(taskElement);
 
     saveTasksToLocalStorage();
     draggedTask = null;
@@ -73,6 +84,46 @@ function handleDragEnd() {
   draggedTask = null;
 }
 
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+
+  // Sélectionnez la tâche à déplacer
+  draggedTask = event.target;
+
+  // Ajoutez un style pour indiquer que la tâche est en cours de glissement
+  draggedTask.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
+  event.preventDefault();
+}
+
+function handleTouchMove(event) {
+  if (!draggedTask) return;
+
+  const touch = event.touches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaY = touch.clientY - touchStartY;
+
+  // Déplacez la tâche en fonction des mouvements tactiles
+  draggedTask.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+  event.preventDefault();
+}
+
+function handleTouchEnd(event) {
+  if (!draggedTask) return;
+
+  // Remettez la tâche à sa position d'origine
+  draggedTask.style.transform = "translate(0px, 0px)";
+  draggedTask.style.boxShadow = "none";
+
+  // Effectuez toute action appropriée ici (par exemple, déplacement vers une autre catégorie ou suppression)
+
+  // Réinitialisez la tâche en cours de glissement
+  draggedTask = null;
+
+  event.preventDefault();
+}
+
 function createTaskElement(taskName) {
   const taskElement = document.createElement("div");
   taskElement.classList.add("task");
@@ -81,6 +132,7 @@ function createTaskElement(taskName) {
   taskElement.addEventListener("dragstart", handleDragStart);
   return taskElement;
 }
+
 function isValidTask(task) {
   if (task === "") {
     alert("Please enter a task");
