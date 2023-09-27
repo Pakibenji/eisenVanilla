@@ -6,6 +6,10 @@
   --titleFont: "Rubik Mono One", sans-serif;
   --formFont: "Open Sans", sans-serif;
   --taskFont: "Roboto", sans-serif;
+  --red: #FF5733;
+  --orange: #FFA500;
+  --green: #4CAF50;
+  --grey: #808080;
 }
 * {
   box-sizing: border-box;
@@ -110,44 +114,44 @@ form button img:hover {
 }
 .urgentImportant {
   grid-area: 1 / 1 / 3 / 3;
-  border: red 3px solid;
+  border: var(--red) 3px solid;
   display: flex;
 }
 .urgentImportant h2 {
-  color: red;
+  color: var(--red);
 }
 .urgentImportant .task {
-  background: red;
+  background: var(--red);
 }
 .urgentNotImportant {
   grid-area: 1 / 3 / 3 / 5;
-  border: orangered 3px solid;
+  border: var(--orange) 3px solid;
 }
 .urgentNotImportant h2 {
-  color: orangered;
+  color: var(--orange);
 }
 .urgentNotImportant .task {
-  background: orangered;
+  background: var(--orange);
 }
 .importantNotUrgent {
   grid-area: 3 / 1 / 5 / 3;
-  border: green 3px solid;
+  border: var(--green) 3px solid;
 }
 .importantNotUrgent h2 {
-  color: green;
+  color: var(--green);
 }
 .importantNotUrgent .task {
-  background: green;
+  background: var(--green);
 }
 .notImportantNotUrgent {
   grid-area: 3 / 3 / 5 / 5;
-  border: grey 3px solid;
+  border: var(--grey) 3px solid;
 }
 .notImportantNotUrgent h2 {
-  color: grey;
+  color: var(--grey);
 }
 .notImportantNotUrgent .task {
-  background: grey;
+  background: var(--grey);
 }
 
 .trashBtn {
@@ -183,4 +187,22 @@ footer {
   color: var(--mainColor);
   margin: 0 auto;
   background: var(--lightColor);
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 100%;
+    font-family: var(--formFont);
+    color: var(--mainColor);
+    margin: 0 auto;
+    background: var(--lightColor);
+  }
+
+  
 }
